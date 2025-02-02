@@ -33,7 +33,16 @@ We licence the code in this repository under a permissive MIT licence and if you
 If you're a contributor, we'd love for you to share your work! We ask our community to refer to themselves as an Open Climate Fix Community Contributor, specifically across social media channels and on personal CVs or portfolios.
 
 </details>
-
+<details>
+  <h2>how to use gfs data</h2>
+how to use gfs data
+import xarray as xr
+import s3fs
+s3 = s3fs.S3FileSystem(anon=True)  # Use `anon=False` if authentication is required
+s3_path = 's3://ocf-open-data-pvnet/data/gfs/'
+ds = xr.open_zarr(s3.get_mapper(s3_path), consolidated=True)
+print(ds)
+</details>
 ## How easy is it to get involved
 We've set up this traffic light legend, so you can see how easy it is to get involved in each of our repositories.
 
@@ -118,6 +127,7 @@ Click on the sections below to see the repo's.
 |----------------------------------------------------------------------------|------------------------|-------| --- |
 | [india-api](https://github.com/openclimatefix/india-api)                   | API India solar and wind data | [Sol Cotton](https://github.com/devsjc) | 🟢
 | [india-forecast-app](https://github.com/openclimatefix/india-forecast-app) | Runs wind and PV forecasts for India and saves to database | [Peter Dudfield](https://github.com/peterdudfield) | 🔴
+
 
 </details>
 
